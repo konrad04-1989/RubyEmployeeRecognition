@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4', platforms: %i[mingw mswin x64_mingw jruby]
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -19,7 +19,7 @@ gem 'webpacker', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'wdm', '>= 0.1.0', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   # Debugging tool
