@@ -9,3 +9,5 @@ bin/setup
 ```
 rails server
 ```
+
+test
