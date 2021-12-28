@@ -5,8 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Employee.create(email:"emp1@reca.com" , encrypted_password:"zaq12wsx")
-Employee.create(email:"emp2@reca.com" , encrypted_password:"zaq12wsx")
-Employee.create(email:"emp3@reca.com" , encrypted_password:"zaq12wsx")
-Employee.create(email:"emp4@reca.com" , encrypted_password:"zaq12wsx")
-Employee.create(email:"emp5@reca.com" , encrypted_password:"zaq12wsx")
+puts "Employees table seeding..."
+
+
+employee = Employee.new
+employee.email = 'emp1@rera.com'
+employee.password = 'zaq123'
+employee.password_confirmation = 'zaq123'
+employee.save!
+
+employee = Employee.new
+employee.email = 'emp2@rera.com'
+employee.password = 'zaq123'
+employee.password_confirmation = 'zaq123'
+employee.save!
+
+employee = Employee.new
+employee.email = 'emp3@rera.com'
+employee.password = 'zaq123'
+employee.password_confirmation = 'zaq123'
+employee.save!
+
+employee = Employee.new
+employee.email = 'emp4@rera.com'
+employee.password = 'zaq123'
+employee.password_confirmation = 'zaq123'
+employee.save!
+
+employee = Employee.new
+employee.email = 'emp5@rera.com'
+employee.password = 'zaq123'
+employee.password_confirmation = 'zaq123'
+employee.save!
+
+
+puts "Employees table seeding done"
