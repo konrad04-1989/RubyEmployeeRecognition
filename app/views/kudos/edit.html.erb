@@ -1,6 +1,8 @@
-<h1>Editing Kudo</h1>
+<div class="bg-light shadow-lg p-4 mb-5 rounded">
+<h2>Editing Kudo</h2>
 
 <%= render 'form', kudo: @kudo %>
-
-<%= link_to 'Show', @kudo %> |
-<%= link_to 'Back', kudos_path %>
+<hr class="my-4">
+<%= link_to 'Show This Kudo!', @kudo, class:"btn btn-primary" %>
+<%= link_to 'Back To Kudos List', kudos_path, class:"btn btn-secondary" %>
+</div>

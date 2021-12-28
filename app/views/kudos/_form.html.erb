@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <hr class="my-4">
+  <div class="field mb-3">
+    <%= form.label :title, class:"form-label" %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
-
-  <div class="field">
+  <hr class="my-4">
+  <div class="field mb-3">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class:"form-control" %>
   </div>
-
-  <div class="field">
+  <hr class="my-4">
+  <div class="field mb-3">
     <%= form.label :giver_id %>
-    <%= form.number_field :giver_id %>
+    <%= form.number_field :giver_id, class:"form-control" %>
   </div>
-
-  <div class="field">
+  <hr class="my-4">
+  <div class="field mb-3">
     <%= form.label :receiver_id %>
-    <%= form.number_field :receiver_id %>
+    <%= form.number_field :receiver_id, class:"form-control" %>
   </div>
-
+  <hr class="my-4">
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-success" %>
   </div>
 <% end %>

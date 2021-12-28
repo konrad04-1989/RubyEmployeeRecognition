@@ -1,24 +1,27 @@
+<div class="bg-light shadow-lg p-4 mb-5 rounded">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
   <%= @kudo.title %>
 </p>
-
+<hr class="my-4">
 <p>
   <strong>Content:</strong>
   <%= @kudo.content %>
 </p>
-
+<hr class="my-4">
 <p>
   <strong>Giver:</strong>
   <%= @kudo.giver_id %>
 </p>
-
+<hr class="my-4">
 <p>
   <strong>Receiver:</strong>
   <%= @kudo.receiver_id %>
 </p>
+<hr class="my-4">
 
-<%= link_to 'Edit', edit_kudo_path(@kudo) %> |
-<%= link_to 'Back', kudos_path %>
+  <%= link_to 'Edit This Kudo!', edit_kudo_path(@kudo), class:"btn btn-warning" %>
+  <%= link_to 'Back To Kudos List', kudos_path, class:"btn btn-secondary" %>
+</div>

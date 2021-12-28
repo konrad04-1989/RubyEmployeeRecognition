@@ -1,15 +1,16 @@
+<div class="bg-light shadow-lg p-4 mb-5 rounded">
 <p id="notice"><%= notice %></p>
 
-<h1>Kudos</h1>
+<h2>Kudos List</h2>
 
-<table>
-  <thead>
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
     <tr>
       <th>Title</th>
       <th>Content</th>
       <th>Giver</th>
       <th>Receiver</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -20,9 +21,12 @@
         <td><%= kudo.content %></td>
         <td><%= kudo.giver_id %></td>
         <td><%= kudo.receiver_id %></td>
-        <td><%= link_to 'Show', kudo %></td>
-        <td><%= link_to 'Edit', edit_kudo_path(kudo) %></td>
-        <td><%= link_to 'Destroy', kudo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', kudo, class:"btn btn-primary" %>
+          <%= link_to 'Edit', edit_kudo_path(kudo), class:"btn btn-warning" %>
+          <%= link_to 'Destroy', kudo, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </td>
+        </div>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,5 @@
 
 <br>
 
-<%= link_to 'New Kudo', new_kudo_path %>
+<%= link_to 'Create New Kudo!', new_kudo_path, class:"btn btn-success" %>
+</div>
