@@ -7,16 +7,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <% if employee_signed_in? %>
-            <li class="nav-item">
-                <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'nav-link' %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-                <%= link_to 'Register', new_employee_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Log in', new_employee_session_path, class: 'nav-link' %>
-            </li>
+
+          <li class="nav-item">
+            <%= link_to 'Kudos', kudos_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'New Kudo', new_kudo_path, class: 'nav-link' %>
+           </li>
+
+          <li class="nav-item">
+            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+
+        <% else %>
+
+          <li class="nav-item">
+            <%= link_to 'Register', new_employee_registration_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Log in', new_employee_session_path, class: 'nav-link' %>
+          </li>
         <% end %>
       </ul>
     </div>
