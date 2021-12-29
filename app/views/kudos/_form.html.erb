@@ -1,13 +1,17 @@
 <%= form_with(model: kudo) do |form| %>
   <% if kudo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
+    <div class="container mt-1">
+      <div class="mt-1 p-3 bg-warning text-black rounded">
+        <div id="error_explanation">
+          <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
 
-      <ul>
-        <% kudo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+          <ul>
+            <% kudo.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
 

@@ -9,19 +9,19 @@
         <% if employee_signed_in? %>
 
           <li class="nav-item">
-            <%= link_to 'Kudos', kudos_path, class: 'nav-link' %>
+            <%= link_to 'Show list of All Kudos', kudos_path, class: 'btn btn-outline-light me-md-1' %>
           </li>
 
           <li class="nav-item">
-            <%= link_to 'New Kudo', new_kudo_path, class: 'nav-link' %>
+            <%= link_to 'Create New Kudo!', new_kudo_path, class: 'btn btn-outline-success me-md-5' %>
            </li>
 
           <li class="nav-item">
-            <%= link_to 'Edit My Account', edit_employee_registration_path, class: 'nav-link' %>
+            <%= link_to 'Edit My Account', edit_employee_registration_path, class: 'btn btn-outline-warning me-md-1' %>
           </li>
 
           <li class="nav-item">
-            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'nav-link' %>
+            <%= button_to 'Log out', destroy_employee_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out?')", class: 'btn btn-outline-danger' %>
           </li>
 
         <% else %>
