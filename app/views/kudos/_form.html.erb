@@ -14,12 +14,13 @@
   <hr class="my-4">
   <div class="field mb-3">
     <%= form.label :title, class:"form-label" %>
-    <%= form.text_field :title, class:"form-control" %>
+    <%= form.text_field :title, class:"form-control form-control-lg", placeholder:"Please give your Kudo a title!" %>
   </div>
+
   <hr class="my-4">
   <div class="field mb-3">
-    <%= form.label :content %>
-    <%= form.text_area :content, class:"form-control" %>
+    <%= form.label :content, class:"form-label" %>
+    <%= form.text_area :content, class:"form-control form-control", placeholder:"Please describe your Kudo!" %>
   </div>
   <hr class="my-4">
   <div class="field mb-3">
