@@ -1,5 +1,5 @@
 class KudosController < ApplicationController
-  before_action :set_kudo, only: [:show, :edit, :update, :destroy]
+  before_action :set_kudo, only: %i[show edit update destroy]
   before_action :authenticate_employee!
 
   # GET /kudos
@@ -45,13 +45,14 @@ class KudosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kudo
-      @kudo = Kudo.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def kudo_params
-      params.require(:kudo).permit(:title, :content, :giver_id, :receiver_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kudo
+    @kudo = Kudo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def kudo_params
+    params.require(:kudo).permit(:title, :content, :giver_id, :receiver_id)
+  end
 end

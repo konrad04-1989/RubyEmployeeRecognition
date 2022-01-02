@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Kudo < ApplicationRecord
-  validates :title, presence: true, :length => { :minimum => 2 }
-  validates :content, presence: true, :length => { :minimum => 2 }
+  validates :title, presence: true, length: { minimum: 2 }
+  validates :content, presence: true, length: { minimum: 2 }
   validates :giver_id, presence: true
   validates :receiver_id, presence: true
 
