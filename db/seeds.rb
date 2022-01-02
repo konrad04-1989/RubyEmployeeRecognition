@@ -45,8 +45,8 @@ puts "Kudos table seeding..."
     kudo = Kudo.new
     kudo.title = Faker::Superhero.name
     kudo.content = Faker::TvShows::Friends.quote
-    kudo.giver_id = Faker::Number.between(from: 1, to: 10)
-    kudo.receiver_id = Faker::Number.between(from: 1, to: 10)
+    kudo.giver_id = Faker::Number.between(from: 1, to: 5)
+    kudo.receiver_id = Faker::Number.between(from: 1, to: 5)
     kudo.save!
 end
 

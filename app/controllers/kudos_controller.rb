@@ -1,5 +1,6 @@
 class KudosController < ApplicationController
   before_action :set_kudo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_employee!
 
   # GET /kudos
   def index
@@ -7,8 +8,7 @@ class KudosController < ApplicationController
   end
 
   # GET /kudos/1
-  def show
-  end
+  def show; end
 
   # GET /kudos/new
   def new
@@ -16,8 +16,7 @@ class KudosController < ApplicationController
   end
 
   # GET /kudos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /kudos
   def create

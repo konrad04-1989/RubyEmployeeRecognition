@@ -17,25 +17,27 @@
 
   <hr class="my-4">
   <div class="field mb-3">
-    <%= form.label :title, class:"form-label" %>
     <%= form.text_field :title, class:"form-control form-control-lg", placeholder:"Please give your Kudo a title!" %>
   </div>
 
   <hr class="my-4">
   <div class="field mb-3">
-    <%= form.label :content, class:"form-label" %>
-    <%= form.text_area :content, class:"form-control form-control", placeholder:"Please describe your Kudo!" %>
+    <%= form.text_area :content, class:"form-control", placeholder:"Please describe your Kudo!" %>
   </div>
+
+  <div class="field mb-3">
+    <%= form.text_field :giver_id, class:"form-control", value:current_employee.id, readonly: true, type: :hidden %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.text_field :email, class:"form-control", value:current_employee.email, readonly: true, type: :hidden %>
+  </div>
+
   <hr class="my-4">
   <div class="field mb-3">
-    <%= form.label :giver_id %>
-    <%= form.number_field :giver_id, class:"form-control" %>
+    <%= collection_select( :kudo, :receiver_id, Employee.all, :id, :email, { prompt: "Please select the email of person you want to grant a Kudo" }, { class: "form-select" }) %>
   </div>
-  <hr class="my-4">
-  <div class="field mb-3">
-    <%= form.label :receiver_id %>
-    <%= form.number_field :receiver_id, class:"form-control" %>
-  </div>
+
   <hr class="my-4">
   <div class="actions">
     <%= form.submit class:"btn btn-success" %>
