@@ -7,35 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Employees table seeding..."
 
-employee = Employee.new
-employee.email = 'emp1@rera.com'
-employee.password = 'zaq123'
-employee.password_confirmation = 'zaq123'
-employee.save!
+    employeenumber = 0
 
-employee = Employee.new
-employee.email = 'emp2@rera.com'
-employee.password = 'zaq123'
-employee.password_confirmation = 'zaq123'
-employee.save!
-
-employee = Employee.new
-employee.email = 'emp3@rera.com'
-employee.password = 'zaq123'
-employee.password_confirmation = 'zaq123'
-employee.save!
-
-employee = Employee.new
-employee.email = 'emp4@rera.com'
-employee.password = 'zaq123'
-employee.password_confirmation = 'zaq123'
-employee.save!
-
-employee = Employee.new
-employee.email = 'emp5@rera.com'
-employee.password = 'zaq123'
-employee.password_confirmation = 'zaq123'
-employee.save!
+5.times do
+    employee = Employee.new
+    employeenumber += 1
+    employee.email = 'emp' + employeenumber.to_s + '@rera.com'
+    employee.password = 'zaq123'
+    employee.password_confirmation = 'zaq123'
+    employee.save!
+end
 
 puts "Employees table seeding done"
 
