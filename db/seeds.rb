@@ -7,12 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Employees table seeding..."
 
-    employeenumber = 0
-
-5.times do
+1.upto(5) do |i|
     employee = Employee.new
-    employeenumber += 1
-    employee.email = 'emp' + employeenumber.to_s + '@rera.com'
+    employee.email = "emp#{i}@rera.com"
     employee.password = 'zaq123'
     employee.password_confirmation = 'zaq123'
     employee.save!
