@@ -48,7 +48,7 @@ class KudosController < ApplicationController
   end
 
   def correct_employee
-    redirect_to kudos_path, notice: "You aren't authorized to edit this Kudo." unless @kudo.giver_of_kudo == current_employee
+    redirect_to kudos_path, notice: "You aren't authorized to access this Kudo." unless @kudo.giver_of_kudo == current_employee
   end
 
   private
