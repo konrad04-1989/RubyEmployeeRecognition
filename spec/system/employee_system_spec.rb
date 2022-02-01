@@ -7,6 +7,8 @@ RSpec.describe 'Employee management', type: :system do
     driven_by(:rack_test)
   end
 
+  # rubocop:disable ExampleLength
+
   it 'enables me to sign up' do
     visit root_path
     click_link 'Register'
@@ -31,4 +33,6 @@ RSpec.describe 'Employee management', type: :system do
 
     expect(page).to have_text('Logged as: test2@test.pl')
   end
+
+  # rubocop:enable ExampleLength
 end
