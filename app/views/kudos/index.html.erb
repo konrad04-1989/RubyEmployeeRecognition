@@ -27,8 +27,15 @@
         <td><%= kudo.giver_of_kudo.email %></td>
         <td><%= kudo.receiver_of_kudo.email %></td>
         <td><%= link_to 'Show', kudo, class:"btn btn-primary" %></td>
-        <td><%= link_to 'Edit...', edit_kudo_path(kudo), class:"btn btn-warning" %></td>
-        <td><%= button_to 'Destroy!', kudo, method: :delete, :onclick => "return confirm('Are you sure you want to delete this Kudo?')", class:"btn btn-danger" %></td>
+        
+        <% if kudo.giver_of_kudo == current_employee %>
+          <td><%= link_to 'Edit...', edit_kudo_path(kudo), class:"btn btn-warning" %></td>
+          <td><%= button_to 'Destroy!', kudo, method: :delete, :onclick => "return confirm('Are you sure you want to delete this Kudo?')", class:"btn btn-danger" %></td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

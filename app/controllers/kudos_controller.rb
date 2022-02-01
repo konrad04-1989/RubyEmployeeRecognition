@@ -3,6 +3,7 @@
 class KudosController < ApplicationController
   before_action :set_kudo, only: %i[show edit update destroy]
   before_action :authenticate_employee!
+  before_action :correct_employee, only: %i[edit update destroy]
 
   # GET /kudos
   def index
@@ -44,6 +45,10 @@ class KudosController < ApplicationController
   def destroy
     @kudo.destroy
     redirect_to kudos_url, notice: 'Kudo was successfully destroyed.'
+  end
+
+  def correct_employee
+    redirect_to kudos_path, notice: "You aren't authorized to access this Kudo." unless @kudo.giver_of_kudo == current_employee
   end
 
   private
