@@ -21,7 +21,7 @@ RSpec.describe 'Kudo management', type: :system do
 
     visit '/kudos'
     expect(page).to have_text('Show')
-    
+
     visit '/kudos/new'
     fill_in 'kudo[title]', with: 'Test Title of Kudo'
     fill_in 'kudo[content]', with: 'Test Content '
