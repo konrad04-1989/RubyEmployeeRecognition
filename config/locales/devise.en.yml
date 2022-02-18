@@ -7,6 +7,8 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
+      admin:
+        already_authenticated: "You are already signed in Administrator."
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."
@@ -46,14 +48,14 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
-      admin_user:
-        signed_in: "ADMIN: Signed in successfully."
+      admin:
+        signed_in: "Signed in successfully as Admin."
       signed_in: "Signed in successfully."
-      admin_user:
-        signed_out: "ADMIN: Signed out successfully."
+      admin:
+        signed_out: "Admin signed out successfully."
       signed_out: "Signed out successfully."
-      admin_user:
-        already_signed_out: "AMDIN: Signed out successfully."
+      admin:
+        already_signed_out: "Admin signed out successfully."
       already_signed_out: "Signed out successfully."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
