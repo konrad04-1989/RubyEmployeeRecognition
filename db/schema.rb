@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2021_12_21_225924) do
   end
 
   create_table "kudos", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "content", null: false
-    t.integer "giver_id", null: false
-    t.integer "receiver_id", null: false
+    t.string "title"
+    t.text "content"
+    t.integer "giver_id"
+    t.integer "receiver_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["giver_id"], name: "index_kudos_on_giver_id"
