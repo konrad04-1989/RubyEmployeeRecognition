@@ -28,6 +28,12 @@
             <%= link_to 'Log out', destroy_employee_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out?')", class: 'btn btn-outline-danger' %>
           </li>
 
+        <% elsif admin_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to 'Admin Log out', destroy_admin_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out Administrator?')", class: 'btn btn-outline-danger' %>
+          </li>
+
         <% else %>
 
           <li class="nav-item">
