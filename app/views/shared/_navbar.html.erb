@@ -25,17 +25,7 @@
           </li>
 
           <li class="nav-item">
-            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out?')", class: 'btn btn-outline-danger' %>
-          </li>
-
-        <% elsif admin_signed_in? %>
-
-          <li class="nav-item">
-            <a class="btn btn-outline-info me-md-1 pe-none">Logged as: <%= current_admin.email %></a>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to 'Admin Log out', destroy_admin_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out Administrator?')", class: 'btn btn-outline-danger' %>
+            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'btn btn-outline-danger' %>
           </li>
 
         <% else %>
@@ -48,9 +38,6 @@
             <%= link_to 'Log in', new_employee_session_path, class: 'btn btn-outline-light me-md-1' %>
           </li>
 
-          <li class="nav-item">
-            <%= link_to 'Admin Log in', new_admin_session_path, class: 'btn btn-outline-light me-md-1' %>
-          </li>
         <% end %>
       </ul>
     </div>
