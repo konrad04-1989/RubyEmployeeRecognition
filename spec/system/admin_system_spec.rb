@@ -8,6 +8,7 @@ RSpec.describe 'Admin account management', type: :system do
   end
 
   # rubocop:disable RSpec/ExampleLength
+  # rubocop:disable RSpec/MultipleExpectations
   it 'enables Admin to sign in' do
     admin_user = create(:admin_user)
     visit admin_root_path
@@ -18,4 +19,5 @@ RSpec.describe 'Admin account management', type: :system do
     expect(page).to have_text('Admin#dashboard')
    end
   # rubocop:enable RSpec/ExampleLength
+  # rubocop:enable RSpec/MultipleExpectations
 end
