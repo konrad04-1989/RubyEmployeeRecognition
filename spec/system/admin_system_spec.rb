@@ -9,13 +9,13 @@ RSpec.describe 'Admin account management', type: :system do
 
   # rubocop:disable RSpec/ExampleLength
   it 'enables Admin to sign in' do
-    admin = create(:admin)
-    visit root_path
-    click_link 'Admin Log in'
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: admin.password
+    admin_user = create(:admin_user)
+    visit admin_root_path
+    fill_in 'Email', with: admin_user.email
+    fill_in 'Password', with: admin_user.password
     click_button 'Log in'
     expect(page).to have_text('Signed in successfully.')
-  end
+    expect(page).to have_text('Admin#dashboard')
+   end
   # rubocop:enable RSpec/ExampleLength
 end
