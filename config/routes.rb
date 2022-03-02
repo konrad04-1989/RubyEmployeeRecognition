@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :admins, path: 'admins'
-  devise_for :employees, path: 'employees'
+  devise_for :admin_users
+  devise_for :employees
 
-  authenticated :admin do
-    root to: 'admin#dashboard', as: :admin_root
+  namespace :admin do
+    root to: 'pages#dashboard'
   end
 
   root to: 'pages#home'
