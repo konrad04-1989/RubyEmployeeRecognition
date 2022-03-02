@@ -17,7 +17,7 @@ RSpec.describe 'Admin account management', type: :system do
     click_button 'Log in'
     expect(page).to have_text('Signed in successfully.')
     expect(page).to have_text('Admin#dashboard')
-   end
+  end
   # rubocop:enable RSpec/ExampleLength
   # rubocop:enable RSpec/MultipleExpectations
 end
