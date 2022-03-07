@@ -16,8 +16,12 @@
   </head>
 
   <body>
+    <% if admin_user_signed_in? %>
+    <%= render 'admin/shared/adminnavbar' %>
+    <% else %>
     <%= render 'shared/navbar' %>
-       
+    <% end %>
+
     <% if notice %>
       <%= render 'shared/notice' %>
     <% end %>

@@ -25,7 +25,7 @@
           </li>
 
           <li class="nav-item">
-            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, :onclick => "return confirm('Are you sure you want to Log out?')", class: 'btn btn-outline-danger' %>
+            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'btn btn-outline-danger' %>
           </li>
 
         <% else %>
@@ -37,6 +37,7 @@
           <li class="nav-item">
             <%= link_to 'Log in', new_employee_session_path, class: 'btn btn-outline-light me-md-1' %>
           </li>
+
         <% end %>
       </ul>
     </div>
