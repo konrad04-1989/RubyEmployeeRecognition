@@ -19,7 +19,8 @@ RSpec.describe 'Admin Kudo management', type: :system do
     fill_in 'Password', with: admin_user.password
     click_button 'Log in'
 
-    expect(page).to have_text(kudo.title && kudo1.title)
+    expect(page).to have_text(kudo.title)
+    expect(page).to have_text(kudo1.title)
 
     find_button('Destroy!', match: :first).click
     expect(page).to have_text('Kudo was successfully destroyed.')
