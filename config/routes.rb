@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'pages#dashboard'
+    resources :kudos, only: %i[index show destroy]
   end
 
   root to: 'pages#home'
