@@ -1,6 +1,6 @@
 puts "Employees table seeding..."
 1.upto(5) do |i|
-    Employee.create!(email: "emp#{i}@rera.com", password: 'zaq123')
+    Employee.create!(email: "emp#{i}@rera.com", password: 'zaq123', number_of_available_kudos: Faker::Number.between(from: 1, to: 10))
 end
 puts "Employees table seeding done"
 
