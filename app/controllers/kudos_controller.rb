@@ -21,6 +21,7 @@ class KudosController < ApplicationController
   # GET /kudos/1/edit
   def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   # POST /kudos
   def create
     if current_employee.number_of_available_kudos.positive?
@@ -37,6 +38,7 @@ class KudosController < ApplicationController
       redirect_to kudos_path, alert: 'Sorry, you cannot give another Kudo.'
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # PATCH/PUT /kudos/1
   def update
