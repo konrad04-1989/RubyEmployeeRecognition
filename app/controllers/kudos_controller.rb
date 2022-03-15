@@ -23,12 +23,18 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    @kudo = Kudo.new(kudo_params)
+    if current_employee.number_of_available_kudos.positive?
+      @kudo = Kudo.new(kudo_params)
 
-    if @kudo.save
-      redirect_to @kudo, notice: 'Kudo was successfully created.'
+      if @kudo.save
+        current_employee.number_of_available_kudos -= 1
+        current_employee.save!
+        redirect_to @kudo, notice: 'Kudo was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to kudos_path, alert: 'Sorry, you cannot give another Kudo.'
     end
   end
 
