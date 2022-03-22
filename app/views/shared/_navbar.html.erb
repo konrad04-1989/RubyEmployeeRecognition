@@ -17,6 +17,14 @@
           </li>
 
           <li class="nav-item">
+            <% if current_employee.number_of_available_kudos > 0 %>
+            <a class="btn btn-outline-success me-md-5 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
+            <% else %>
+            <a class="btn btn-outline-danger me-md-5 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
             <a class="btn btn-outline-info me-md-1 pe-none">Logged as: <%= current_employee.email %></a>
           </li>
 
