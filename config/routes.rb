@@ -2,11 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :admin_users
-  devise_for :employees
+  devise_for :employees, path_prefix: 'ror'
 
   namespace :admin do
     root to: 'pages#dashboard'
     resources :kudos, only: %i[index show destroy]
+    resources :employees
   end
 
   root to: 'pages#home'
