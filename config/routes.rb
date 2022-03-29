@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :admin_users
-  devise_for :employees, path_prefix: 'ror'
+  devise_for :employees
 
   namespace :admin do
     root to: 'pages#dashboard'
