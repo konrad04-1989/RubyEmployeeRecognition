@@ -15,10 +15,8 @@ RSpec.describe 'Admin Employee management', type: :system do
   # rubocop:disable RSpec/MultipleExpectations
 
   it 'enables me to read, update and destroy employee' do
+    login_as(admin_user)
     visit admin_employees_path
-    fill_in 'Email', with: admin_user.email
-    fill_in 'Password', with: admin_user.password
-    click_button 'Log in'
 
     expect(page).to have_text(employee.email)
     expect(page).to have_text(employee1.email)
