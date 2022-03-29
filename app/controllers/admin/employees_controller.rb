@@ -13,13 +13,10 @@ module Admin
     def show; end
 
     # GET /admin/employees/1/edit
-    def edit
-      @employee = Employee.find(params[:id])
-    end
+    def edit; end
 
     # PATCH/PUT /admin/employees/1
     def update
-      @employee = Employee.find(params[:id])
       params[:employee].delete(:password) if params[:employee][:password].blank?
       if @employee.update(employee_params)
         redirect_to admin_employees_path, notice: 'Employee was successfully updated.'
