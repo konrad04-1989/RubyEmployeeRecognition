@@ -43,5 +43,7 @@
   </div>
 <% end %>
 <hr class="my-4">
+   <%= button_to 'Destroy This Employee!', admin_employee_path(@employee), method: :delete, :onclick => "return confirm('Are you sure?')", class:"btn btn-danger" %>
+<hr class="my-4">
 <%= link_to "Back", :back, class:"btn btn-secondary" %>
 </div>
