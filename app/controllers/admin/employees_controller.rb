@@ -17,7 +17,7 @@ module Admin
 
     # PATCH/PUT /admin/employees/1
     def update
-      params[:employee].delete(:password) if params[:employee][:password].blank?
+      params[:employee].compact_blank! if params[:employee][:password].blank?
       if @employee.update(employee_params)
         redirect_to admin_employees_path, notice: 'Employee was successfully updated.'
       else
