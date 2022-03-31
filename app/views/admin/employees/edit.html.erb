@@ -1,0 +1,49 @@
+<div class="bg-light shadow-lg p-4 mb-3 rounded">
+<h2>Editing <%= @employee.email %></h2>
+
+<%= form_for [:admin, @employee ] do |f| %>
+  <% if @employee.errors.any? %>
+    <div class="container mt-1">
+      <div class="mt-1 p-3 bg-warning text-black rounded">
+        <div id="error_explanation">
+          <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this Employee from being saved:</h2>
+          <ul>
+            <% @employee.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+  <hr class="my-4">
+  <div class="field mb-3">
+    <%= f.label :email, class:"form-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Please enter new e-mail adress." %>
+  </div>
+
+  <hr class="my-4">
+  <div class="field mb-3">
+    <%= f.label :number_of_available_kudos, class:"form-label" %>
+    <%= f.number_field :number_of_available_kudos, min: 0, autocomplete: "number_of_available_kudos", class:"form-control", placeholder:"Please enter a new number of available Kudos" %>
+  </div>
+
+  <hr class="my-4">
+  <div class="field mb-3">
+    <%= f.label :password, class:"form-label" %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Please enter new password. Please leave blank if you don't want to change it." %>
+  </div>
+  <hr class="my-4">
+  <div class="actions">
+    <%= f.submit "Update Employee", class:"btn btn-success" %>
+  </div>
+<% end %>
+<hr class="my-4">
+   <%= button_to 'Destroy This Employee!', admin_employee_path(@employee), method: :delete, :onclick => "return confirm('Are you sure?')", class:"btn btn-danger" %>
+<hr class="my-4">
+<%= link_to "Back", :back, class:"btn btn-secondary" %>
+</div>
