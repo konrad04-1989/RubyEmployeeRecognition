@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root to: 'pages#dashboard'
     resources :kudos, only: %i[index show destroy]
     resources :employees
+    resources :company_values
   end
 
   root to: 'pages#home'
