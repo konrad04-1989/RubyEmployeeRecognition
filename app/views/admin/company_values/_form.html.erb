@@ -1,0 +1,26 @@
+<%= form_for [:admin, @company_value ] do |f| %>
+  <% if @company_value.errors.any? %>
+    <div class="container mt-1">
+      <div class="mt-1 p-3 bg-warning text-black rounded">
+        <div id="error_explanation">
+          <h2><%= pluralize(@company_value.errors.count, "error") %> prohibited this Company Value from being saved:</h2>
+          <ul>
+            <% @company_value.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <hr class="my-4">
+  <div class="field mb-3">
+    <%= f.text_field :title, autofocus: true, class:"form-control form-control-lg", placeholder:"Please give your Company Value a title!" %>
+  </div>
+
+  <hr class="my-4">
+  <div class="actions">
+    <%= f.submit class:"btn btn-success" %>
+  </div>
+<% end %>
