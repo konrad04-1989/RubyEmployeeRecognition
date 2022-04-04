@@ -2,7 +2,6 @@
 
 module Admin
   class EmployeesController < AdminController
-
     # GET /admin/employees
     def index
       @employees = Employee.all

@@ -2,7 +2,6 @@
 
 module Admin
   class KudosController < AdminController
-
     # GET /admin/kudos
     def index
       @kudos = Kudo.all
