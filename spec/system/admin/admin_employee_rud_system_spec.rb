@@ -23,7 +23,7 @@ RSpec.describe 'Admin Employee management', type: :system do
 
     find_link('Edit...', match: :first).click
     fill_in 'Email', with: employee2.email
-    click_button 'Update Employee'
+    find_button('Update Employee').click
     expect(page).to have_text('Employee was successfully updated.')
     expect(page).to have_text(employee2.email)
 

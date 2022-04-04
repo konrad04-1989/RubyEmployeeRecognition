@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :kudo do
-    title { Faker::Superhero.name }
-    content { Faker::TvShows::Friends.quote }
+    sequence(:title) { |n| "Title of Kudo #{n}" }
+    sequence(:content) { |n| "Content of Kudo #{n}" }
     giver_of_kudo factory: :employee
     receiver_of_kudo factory: :employee
   end

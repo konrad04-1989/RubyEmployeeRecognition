@@ -2,21 +2,24 @@
 
 module Admin
   class EmployeesController < AdminController
-    before_action :find_employee, only: %i[show edit update destroy]
-
     # GET /admin/employees
     def index
       @employees = Employee.all
     end
 
     # GET /admin/employees/1
-    def show; end
+    def show
+      find_employee
+    end
 
     # GET /admin/employees/1/edit
-    def edit; end
+    def edit
+      find_employee
+    end
 
     # PATCH/PUT /admin/employees/1
     def update
+      find_employee
       params[:employee].compact_blank! if params[:employee][:password].blank?
       if @employee.update(employee_params)
         redirect_to admin_employees_path, notice: 'Employee was successfully updated.'
@@ -27,6 +30,7 @@ module Admin
 
     # DELETE /admin/employees/1
     def destroy
+      find_employee
       @employee.destroy
       redirect_to admin_employees_path, notice: 'Employee was successfully destroyed.'
     end

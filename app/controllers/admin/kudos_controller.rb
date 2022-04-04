@@ -2,15 +2,15 @@
 
 module Admin
   class KudosController < AdminController
-    before_action :set_kudo, only: %i[show destroy]
-
     # GET /admin/kudos
     def index
       @kudos = Kudo.all
     end
 
     # GET /admin/kudos/1
-    def show; end
+    def show
+      set_kudo
+    end
 
     # POST /admin/kudos
     def create
@@ -19,6 +19,7 @@ module Admin
 
     # DELETE /admin/kudos/1
     def destroy
+      set_kudo
       @kudo.destroy
       redirect_to admin_kudos_url, notice: 'Kudo was successfully destroyed.'
     end

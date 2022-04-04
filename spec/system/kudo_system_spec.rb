@@ -20,20 +20,20 @@ RSpec.describe 'Kudo management', type: :system do
     fill_in 'Password', with: employee.password
     click_button 'Log in'
 
-    visit '/kudos/new'
+    visit new_kudo_path
     fill_in 'kudo[title]', with: new_kudo.title
     fill_in 'kudo[content]', with: new_kudo.content
     select employee.email
     click_button 'Create Kudo'
     expect(page).to have_text('Kudo was successfully created.')
 
-    visit '/kudos'
+    visit kudos_path
     click_on 'Edit...'
     fill_in 'kudo[title]', with: edited_kudo.title
     click_button 'Update Kudo'
     expect(page).to have_text('Kudo was successfully updated.')
 
-    visit '/kudos'
+    visit kudos_path
     click_on 'Destroy!'
     expect(page).to have_text('Kudo was successfully destroyed.')
   end
