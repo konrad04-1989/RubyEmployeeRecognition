@@ -2,7 +2,6 @@
 
 module Admin
   class CompanyValuesController < AdminController
-    before_action :set_company_value, only: %i[show edit update destroy]
 
     # GET /admin/company_values
     def index
@@ -10,7 +9,9 @@ module Admin
     end
 
     # GET /admin/company_values/1
-    def show; end
+    def show
+      set_company_value
+    end
 
     # GET /admin/company_values/new
     def new
@@ -18,7 +19,9 @@ module Admin
     end
 
     # GET /admin/company_values/1/edit
-    def edit; end
+    def edit
+      set_company_value
+    end
 
     # POST /admin/company_values
     def create
@@ -32,6 +35,7 @@ module Admin
 
     # PATCH/PUT /admin/company_values/1
     def update
+      set_company_value
       if @company_value.update(company_value_params)
         redirect_to admin_company_values_path, notice: 'Company Value was successfully updated.'
       else
@@ -41,6 +45,7 @@ module Admin
 
     # DELETE /admin/company_values/1
     def destroy
+      set_company_value
       @company_value.destroy
       redirect_to admin_company_values_url, notice: 'Company Value was successfully destroyed.'
     end

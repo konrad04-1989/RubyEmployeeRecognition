@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class KudosController < ApplicationController
-  before_action :set_kudo, only: %i[show edit update destroy]
   before_action :authenticate_employee!
-  before_action :correct_employee, only: %i[edit update destroy]
 
   # GET /kudos
   def index
@@ -11,7 +9,9 @@ class KudosController < ApplicationController
   end
 
   # GET /kudos/1
-  def show; end
+  def show
+    set_kudo
+  end
 
   # GET /kudos/new
   def new
@@ -19,7 +19,10 @@ class KudosController < ApplicationController
   end
 
   # GET /kudos/1/edit
-  def edit; end
+  def edit
+    set_kudo
+    correct_employee
+  end
 
   # rubocop:disable Metrics/MethodLength
   # POST /kudos
@@ -42,6 +45,8 @@ class KudosController < ApplicationController
 
   # PATCH/PUT /kudos/1
   def update
+    set_kudo
+    correct_employee
     if @kudo.update(kudo_params)
       redirect_to @kudo, notice: 'Kudo was successfully updated.'
     else
@@ -51,6 +56,8 @@ class KudosController < ApplicationController
 
   # DELETE /kudos/1
   def destroy
+    set_kudo
+    correct_employee
     @kudo.destroy
     redirect_to kudos_url, notice: 'Kudo was successfully destroyed.'
   end
