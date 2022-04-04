@@ -20,13 +20,13 @@ RSpec.describe 'Admin Company Value management', type: :system do
 
     find_link('Create New Company Value!').click
     fill_in 'company_value[title]', with: new_company_value.title
-    click_button 'Create Company value'
+    find_button('Create Company value').click
     expect(page).to have_text('Company Value was successfully created.')
     expect(page).to have_text(new_company_value.title)
 
     find_link('Edit...', match: :first).click
     fill_in 'company_value[title]', with: edited_company_value.title
-    click_button 'Update Company value'
+    find_button('Update Company value').click
     expect(page).to have_text('Company Value was successfully updated.')
     expect(page).to have_text(edited_company_value.title)
     expect(page).not_to have_text(new_company_value.title)

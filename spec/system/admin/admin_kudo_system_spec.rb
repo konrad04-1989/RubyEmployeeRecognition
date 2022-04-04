@@ -14,16 +14,15 @@ RSpec.describe 'Admin Kudo management', type: :system do
   # rubocop:disable RSpec/MultipleExpectations
 
   it 'enables me to show and destroy kudos' do
+    login_as(admin_user)
     visit admin_kudos_path
-    fill_in 'Email', with: admin_user.email
-    fill_in 'Password', with: admin_user.password
-    click_button 'Log in'
 
     expect(page).to have_text(kudo.title)
     expect(page).to have_text(kudo1.title)
 
     find_button('Destroy!', match: :first).click
     expect(page).to have_text('Kudo was successfully destroyed.')
+    expect(page).not_to have_text(kudo.title)
   end
 
   # rubocop:enable RSpec/ExampleLength
