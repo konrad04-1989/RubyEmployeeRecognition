@@ -8,6 +8,7 @@ RSpec.describe 'Kudo management', type: :system do
   end
 
   let(:employee) { create(:employee) }
+  let!(:company_value) { create(:company_value) }
   let(:new_kudo) { build(:kudo) }
   let(:edited_kudo) { build(:kudo) }
   # rubocop:disable RSpec/ExampleLength
@@ -24,6 +25,7 @@ RSpec.describe 'Kudo management', type: :system do
     fill_in 'kudo[title]', with: new_kudo.title
     fill_in 'kudo[content]', with: new_kudo.content
     select employee.email
+    select company_value.title
     click_button 'Create Kudo'
     expect(page).to have_text('Kudo was successfully created.')
 
