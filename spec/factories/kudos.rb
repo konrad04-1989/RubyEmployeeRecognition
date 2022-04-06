@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :kudo do
     sequence(:title) { |n| "Title of Kudo #{n}" }
     sequence(:content) { |n| "Content of Kudo #{n}" }
-    company_value factory: :company_value
+    company_value
     giver_of_kudo factory: :employee
     receiver_of_kudo factory: :employee
   end
