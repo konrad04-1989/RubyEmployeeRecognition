@@ -19,8 +19,8 @@ puts "Seeding Kudos..."
 10.times do
     Kudo.create!(   title: Faker::Superhero.name, 
                     content: Faker::TvShows::Friends.quote, 
-                    giver_id: rand(1..10), 
-                    receiver_id: rand(1..10), 
-                    company_value_id: rand(1..4))
+                    giver_of_kudo: Employee.all.sample, 
+                    receiver_of_kudo: Employee.all.sample,
+                    company_value: CompanyValue.all.sample)
 end
 puts "Done. Created #{Kudo.count} Kudos"
