@@ -11,31 +11,28 @@ RSpec.describe 'Kudo management', type: :system do
   let!(:company_value) { create(:company_value) }
   let(:new_kudo) { build(:kudo) }
   let(:another_kudo) { build(:kudo) }
+
   # rubocop:disable RSpec/ExampleLength
   # rubocop:disable RSpec/MultipleExpectations
 
   it 'enables me to spend all available kudos.' do
-    visit root_path
-    click_on 'Log in'
-    fill_in 'Email', with: employee.email
-    fill_in 'Password', with: employee.password
-    click_button 'Log in'
+    sign_in(employee)
 
-    visit new_kudo_path
-    fill_in 'kudo[title]', with: new_kudo.title
-    fill_in 'kudo[content]', with: new_kudo.content
-    select employee.email
-    select company_value.title
-    click_button 'Create Kudo'
+    visit(new_kudo_path)
+    fill_in('kudo[title]', with: new_kudo.title)
+    fill_in('kudo[content]', with: new_kudo.content)
+    select(employee.email)
+    select(company_value.title)
+    click_button('Create Kudo')
     expect(page).to have_text('Kudo was successfully created.')
     expect(page).to have_text(new_kudo.title)
 
-    visit new_kudo_path
-    fill_in 'kudo[title]', with: another_kudo.title
-    fill_in 'kudo[content]', with: another_kudo.content
-    select employee.email
-    select company_value.title
-    click_button 'Create Kudo'
+    visit(new_kudo_path)
+    fill_in('kudo[title]', with: another_kudo.title)
+    fill_in('kudo[content]', with: another_kudo.content)
+    select(employee.email)
+    select(company_value.title)
+    click_button('Create Kudo')
     expect(page).to have_text('Sorry, you cannot give another Kudo.')
   end
 
