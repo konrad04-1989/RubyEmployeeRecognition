@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :kudos, only: %i[index show destroy]
     resources :employees
     resources :company_values
+    resources :rewards
   end
 
   root to: 'pages#home'
