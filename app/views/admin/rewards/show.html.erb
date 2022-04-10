@@ -1,0 +1,26 @@
+<div class="bg-light shadow-lg p-4 mb-5 rounded">
+
+  <p>
+    <strong>Title:</strong>
+    <%= @reward.title %>
+  </p>
+  <hr class="my-4">
+
+  <p>
+    <strong>Description:</strong>
+    <%= @reward.description %>
+  </p>
+  <hr class="my-4">
+
+  <p>
+    <strong>Price:</strong>
+    <%= @reward.price %>
+  </p>
+  <hr class="my-4">
+
+  <div class="d-grid gap-1 d-md-flex mx-left">
+    <%= link_to 'Edit This Reward', edit_admin_reward_path(@reward), class:"btn btn-warning" %>
+    <%= button_to 'Destroy This Reward!', admin_reward_path(@reward), method: :delete, :onclick => "return confirm('Are you sure you want to delete this Reward?')", class:"btn btn-danger" %>
+    <%= link_to 'Back To Rewards List', admin_rewards_path, class:"btn btn-secondary" %>
+  </div>
+</div>
