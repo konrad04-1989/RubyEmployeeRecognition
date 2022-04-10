@@ -15,23 +15,23 @@ RSpec.describe 'Admin Company Value management', type: :system do
   # rubocop:disable RSpec/MultipleExpectations
 
   it 'enables me to create, read, update and destroy Company Value' do
-    login_as(admin_user)
-    visit admin_company_values_path
+    sign_in(admin_user)
+    visit(admin_company_values_path)
 
-    find_link('Create New Company Value!').click
-    fill_in 'company_value[title]', with: new_company_value.title
-    find_button('Create Company value').click
+    click_link('Create New Company Value!')
+    fill_in('company_value[title]', with: new_company_value.title)
+    click_button('Create Company value')
     expect(page).to have_text('Company Value was successfully created.')
     expect(page).to have_text(new_company_value.title)
 
-    find_link('Edit...', match: :first).click
-    fill_in 'company_value[title]', with: edited_company_value.title
-    find_button('Update Company value').click
+    click_link('Edit...', match: :first)
+    fill_in('company_value[title]', with: edited_company_value.title)
+    click_button('Update Company value')
     expect(page).to have_text('Company Value was successfully updated.')
     expect(page).to have_text(edited_company_value.title)
     expect(page).not_to have_text(new_company_value.title)
 
-    find_button('Destroy', match: :first).click
+    click_button('Destroy', match: :first)
     expect(page).to have_text('Company Value was successfully destroyed.')
     expect(page).not_to have_text(new_company_value.title)
     expect(page).not_to have_text(edited_company_value.title)

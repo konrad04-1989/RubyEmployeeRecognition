@@ -10,17 +10,18 @@ RSpec.describe 'Admin Kudo management', type: :system do
   let(:admin_user) { create(:admin_user) }
   let!(:kudo) { create(:kudo) }
   let!(:kudo1) { create(:kudo) }
+
   # rubocop:disable RSpec/ExampleLength
   # rubocop:disable RSpec/MultipleExpectations
 
   it 'enables me to show and destroy kudos' do
-    login_as(admin_user)
-    visit admin_kudos_path
+    sign_in(admin_user)
+    visit(admin_kudos_path)
 
     expect(page).to have_text(kudo.title)
     expect(page).to have_text(kudo1.title)
 
-    find_button('Destroy!', match: :first).click
+    click_button('Destroy!', match: :first)
     expect(page).to have_text('Kudo was successfully destroyed.')
     expect(page).not_to have_text(kudo.title)
   end
