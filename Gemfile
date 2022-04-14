@@ -23,6 +23,7 @@ gem 'wdm', '>= 0.1.0', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   # Debugging tool
+  gem 'bullet', group: 'development'
   gem 'pry-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
