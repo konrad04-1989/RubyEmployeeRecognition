@@ -20,8 +20,12 @@
             <li class="nav-item">
               <%= link_to 'All Employees', admin_employees_path, class: 'dropdown-item' %>
             </li>
+
+            <li class="nav-item">
+              <%= link_to 'All Rewards', admin_rewards_path, class: 'dropdown-item' %>
+            </li>
           </ul>
-          
+
           <li class="nav-item">
             <a class="btn btn-outline-info me-md-1 pe-none">Logged as: <%= current_admin_user.email %></a>
           </li>
