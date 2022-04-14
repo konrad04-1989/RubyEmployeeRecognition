@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   resources :kudos
+  resources :rewards, only: %i[index show]
   get '/pages' => 'pages#home'
   get '/pages/home' => 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
