@@ -13,7 +13,7 @@ RSpec.describe 'Reward management', type: :system do
   # rubocop:disable RSpec/ExampleLength
   # rubocop:disable RSpec/MultipleExpectations
 
-  it 'enables me to show rewards list and show detailed reward page' do
+  it 'displays rewards index and shows reward page' do
     sign_in(employee)
     visit(rewards_path)
 
