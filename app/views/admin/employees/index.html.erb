@@ -7,6 +7,7 @@
     <tr>
       <th>Email</th>
       <th style="width: 18%">Number of available Kudos</th>
+      <th style="width: 13%">Number of points</th>
       <th style="width: 1%", colspan="3">Modify</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= employee.email %></td>
         <td><%= employee.number_of_available_kudos %></td>
+        <td><%= employee.number_of_points %></td>
         <td><%= link_to 'Show', admin_employee_path(employee), class:"btn btn-primary" %></td>
         <td><%= link_to 'Edit...', edit_admin_employee_path(employee), class:"btn btn-warning" %></td>
         <td><%= button_to 'Destroy!', admin_employee_path(employee), method: :delete, :onclick => "return confirm('Are you sure you want to delete this Emp?')", class:"btn btn-danger" %></td>

@@ -12,6 +12,12 @@
   </p>
   <hr class="my-4">
 
+  <p>
+    <strong>Number of points:</strong>
+    <%= @employee.number_of_points %>
+  </p>
+  <hr class="my-4">
+
  <div class="d-grid gap-1 d-md-flex mx-left">
     <%= link_to 'Edit This Employee', edit_admin_employee_path(@employee), class:"btn btn-warning" %>
     <%= button_to 'Destroy This Employee!', admin_employee_path(@employee), method: :delete, :onclick => "return confirm('Are you sure?')", class:"btn btn-danger" %>
