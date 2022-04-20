@@ -4,7 +4,7 @@ module Admin
   class KudosController < AdminController
     # GET /admin/kudos
     def index
-      @kudos = Kudo.all
+      @kudos = Kudo.all.includes([:company_value])
     end
 
     # GET /admin/kudos/1
