@@ -1,45 +1,53 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Ruby Employee Recognition App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <%= link_to 'Ruby Employee Recognition App', root_path, class: 'navbar-brand' %>
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
         <% if employee_signed_in? %>
 
-          <li class="nav-item">
-            <%= link_to 'Show list of Kudos', kudos_path, class: 'btn btn-outline-light me-md-1' %>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="btn btn-outline-light me-md-5 dropdown-toggle" data-bs-toggle="dropdown">
+              Show list of...
+            </a>
 
-          <li class="nav-item">
-            <%= link_to 'Show list of Rewards', rewards_path, class: 'btn btn-outline-light me-md-1' %>
-          </li>
+            <ul class="dropdown-menu">
+              <li class="nav-item">
+                <%= link_to 'All Kudos', kudos_path, class: 'dropdown-item' %>
+              </li>
 
-          <li class="nav-item">
-            <%= link_to 'Create New Kudo!', new_kudo_path, class: 'btn btn-outline-success me-md-5' %>
-          </li>
+              <li class="nav-item">
+                <%= link_to 'All Rewards', rewards_path, class: 'dropdown-item' %>
+              </li>
+            </ul>
 
-          <li class="nav-item">
-            <% if current_employee.number_of_available_kudos > 0 %>
-            <a class="btn btn-outline-success me-md-5 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
-            <% else %>
-            <a class="btn btn-outline-danger me-md-5 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
-            <% end %>
-          </li>
+            <li class="nav-item">
+              <% if current_employee.number_of_available_kudos.positive? %>
+                <a class="btn btn-outline-success me-md-1 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
+              <% else %>
+                <a class="btn btn-outline-danger me-md-1 pe-none">Number of available Kudos: <%= current_employee.number_of_available_kudos %></a>
+              <% end %>
+            </li>
 
-          <li class="nav-item">
-            <a class="btn btn-outline-info me-md-1 pe-none">Logged as: <%= current_employee.email %></a>
-          </li>
+            <li class="nav-item">
+              <% if current_employee.number_of_points.positive? %>
+                <a class="btn btn-outline-success me-md-5 pe-none">Available points: <%= current_employee.number_of_points %></a>
+              <% else %>
+                <a class="btn btn-outline-danger me-md-5 pe-none">Available points: <%= current_employee.number_of_points %></a>
+              <% end %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Edit My Account', edit_employee_registration_path, class: 'btn btn-outline-warning me-md-1' %>
-          </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-info me-md-1 pe-none">Logged as: <%= current_employee.email %></a>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'btn btn-outline-danger' %>
-          </li>
+            <li class="nav-item">
+              <%= link_to 'Edit My Account', edit_employee_registration_path, class: 'btn btn-outline-warning me-md-1' %>
+            </li>
 
+            <li class="nav-item">
+              <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+            </li>
+          </li>
         <% else %>
 
           <li class="nav-item">

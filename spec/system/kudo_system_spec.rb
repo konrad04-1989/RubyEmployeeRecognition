@@ -19,6 +19,7 @@ RSpec.describe 'Kudo management', type: :system do
     sign_in(employee)
     visit(new_kudo_path)
 
+    expect(employee.number_of_points).to be(0)
     fill_in('kudo[title]', with: new_kudo.title)
     fill_in('kudo[content]', with: new_kudo.content)
     select(employee.email)
@@ -27,15 +28,18 @@ RSpec.describe 'Kudo management', type: :system do
     select(company_value.title)
     click_button('Create Kudo')
     expect(page).to have_text('Kudo was successfully created.')
+    expect(employee.number_of_points).to be(1)
 
     visit(kudos_path)
     click_on('Edit...')
     fill_in('kudo[title]', with: edited_kudo.title)
     click_button('Update Kudo')
     expect(page).to have_text('Kudo was successfully updated.')
+    expect(employee.number_of_points).to be(1)
 
     visit(kudos_path)
     click_on('Destroy!')
+    expect(employee.number_of_points).to be(0)
     expect(page).to have_text('Kudo was successfully destroyed.')
   end
 
