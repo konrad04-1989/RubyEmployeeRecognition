@@ -7,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th style="width: 10%">Price</th>
-      <th style="width: 10%">Details</th>
+      <th style="width: 10%", colspan="2">Details</th>
     </tr>
   </thead>
 
@@ -17,6 +17,11 @@
         <td><%= reward.title %></td>
         <td><%= reward.price %></td>
         <td><%= link_to 'Show', reward, class:"btn btn-primary btn-sm" %></td>
+        <% if current_employee.number_of_points >= reward.price %>
+          <td><%= button_to 'Buy', orders_path(reward_id: reward), data: { confirm: 'Are you sure?' }, class:"btn btn-success btn-sm" %></td>
+        <% else %>
+          <td><%= button_to 'Buy', orders_path(reward_id: reward), disabled: true, class:"btn btn-secondary btn-sm" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
