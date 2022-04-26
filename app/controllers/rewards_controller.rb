@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RewardsController < ApplicationController
+  before_action :authenticate_employee!
+
   # GET /rewards
   def index
     @rewards = Reward.all
