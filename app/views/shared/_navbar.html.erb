@@ -18,6 +18,10 @@
               <li class="nav-item">
                 <%= link_to 'All Rewards', rewards_path, class: 'dropdown-item' %>
               </li>
+
+              <li class="nav-item">
+                <%= link_to 'All Orders', orders_path, class: 'dropdown-item' %>
+              </li>
             </ul>
 
             <li class="nav-item">
@@ -45,7 +49,7 @@
             </li>
 
             <li class="nav-item">
-              <%= link_to 'Log out', destroy_employee_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+              <%= link_to 'Log out', destroy_employee_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
             </li>
           </li>
         <% else %>
