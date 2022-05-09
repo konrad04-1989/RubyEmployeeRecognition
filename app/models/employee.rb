@@ -12,6 +12,6 @@ class Employee < ApplicationRecord
   has_many :rewards, through: :orders
 
   def number_of_points
-    received_kudos.count - rewards.sum(:price).to_i
+    received_kudos.count - orders.sum(&:order_snapshot_price)
   end
 end
