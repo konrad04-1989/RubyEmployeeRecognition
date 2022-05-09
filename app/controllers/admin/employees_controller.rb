@@ -4,7 +4,7 @@ module Admin
   class EmployeesController < AdminController
     # GET /admin/employees
     def index
-      @employees = Employee.all
+      @employees = Employee.all.includes([:orders])
     end
 
     # GET /admin/employees/1
