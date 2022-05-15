@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   # POST /orders
   def create
     if current_employee.number_of_points >= reward.price
-      Order.create(employee: current_employee, reward: reward, order_snapshot: reward)
+      Order.create(employee: current_employee, reward: reward, snapshot: reward)
       redirect_to orders_path, notice: 'Reward was successfully purchased.'
     else
       redirect_to rewards_path, alert: "Sorry, You don't have enough points."

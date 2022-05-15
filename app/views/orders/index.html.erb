@@ -15,10 +15,10 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.order_snapshot.title %></td>
-        <td><%= order.order_snapshot.description %></td>
+        <td><%= order.snapshot.title %></td>
+        <td><%= order.snapshot.description %></td>
         <td><%= order.created_at.localtime.to_s(:db) %></td>
-        <td><%= order.order_snapshot.price %></td>
+        <td><%= order.snapshot.price %></td>
       </tr>
     <% end %>
   </tbody>
