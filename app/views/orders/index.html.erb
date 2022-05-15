@@ -6,17 +6,19 @@
   <thead class="table-dark">
     <tr>
       <th>Title</th>
-      <th style="width: 10%">Price</th>
-      <th style="width: 15%">Buyer</th>
+      <th>Description</th>
+      <th style="width: 10%">Purchase time</th>
+      <th style="width: 1%">Price</th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.reward.title %></td>
-        <td><%= order.reward.price %></td>
-        <td><%= order.employee.email %></td>
+        <td><%= order.snapshot.title %></td>
+        <td><%= order.snapshot.description %></td>
+        <td><%= order.created_at.localtime.to_s(:db) %></td>
+        <td><%= order.snapshot.price %></td>
       </tr>
     <% end %>
   </tbody>
