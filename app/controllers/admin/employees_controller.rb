@@ -10,6 +10,7 @@ module Admin
     # GET /admin/employees/1
     def show
       find_employee
+      @orders = Order.all.where(employee: @employee)
     end
 
     # GET /admin/employees/1/edit
