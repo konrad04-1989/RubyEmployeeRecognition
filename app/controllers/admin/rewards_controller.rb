@@ -4,7 +4,7 @@ module Admin
   class RewardsController < AdminController
     # GET /admin/rewards
     def index
-      @rewards = Reward.all
+      @rewards = Reward.all.sort_by(&:title)
     end
 
     # GET /admin/rewards/1
