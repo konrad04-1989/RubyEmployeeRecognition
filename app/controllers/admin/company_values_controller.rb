@@ -4,7 +4,7 @@ module Admin
   class CompanyValuesController < AdminController
     # GET /admin/company_values
     def index
-      @company_values = CompanyValue.all
+      @company_values = CompanyValue.all.sort_by(&:title)
     end
 
     # GET /admin/company_values/1

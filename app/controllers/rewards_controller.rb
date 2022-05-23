@@ -5,7 +5,7 @@ class RewardsController < ApplicationController
 
   # GET /rewards
   def index
-    @rewards = Reward.all
+    @rewards = Reward.all.sort_by(&:title)
   end
 
   # GET /rewards/1

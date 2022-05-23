@@ -4,12 +4,13 @@ module Admin
   class EmployeesController < AdminController
     # GET /admin/employees
     def index
-      @employees = Employee.all.includes([:orders])
+      @employees = Employee.all.includes([:orders]).sort
     end
 
     # GET /admin/employees/1
     def show
       find_employee
+      @orders = @employee.orders
     end
 
     # GET /admin/employees/1/edit

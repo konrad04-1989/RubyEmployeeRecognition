@@ -56,6 +56,7 @@ RSpec.describe 'Reward management', type: :system do
     expect(page).to have_text(reward.price)
     expect(reward.price) == 1
   end
+
   # rubocop:enable Lint/Void
   # rubocop:enable RSpec/ExampleLength
   # rubocop:enable RSpec/MultipleExpectations

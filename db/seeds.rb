@@ -17,18 +17,18 @@ puts "Done. Created #{CompanyValue.count} Company Values"
 
 puts "Seeding Kudos..."
 10.times do
-    Kudo.create!(   title: Faker::Superhero.name,
-                    content: Faker::TvShows::Friends.quote,
-                    giver_of_kudo: Employee.all.sample,
-                    receiver_of_kudo: Employee.all.sample,
-                    company_value: CompanyValue.all.sample)
+    Kudo.find_or_create_by(   title: Faker::Superhero.name,
+                              content: Faker::TvShows::Friends.quote,
+                              giver_of_kudo: Employee.all.sample,
+                              receiver_of_kudo: Employee.all.sample,
+                              company_value: CompanyValue.all.sample)
 end
 puts "Done. Created #{Kudo.count} Kudos"
 
 puts "Seeding Rewards..."
 1.upto(10) do |i|
-    Reward.find_or_create_by!(   title: Faker::Games::Pokemon.name,
-                                 description: Faker::TvShows::DumbAndDumber.quote,
-                                 price: rand(1..100))
+    Reward.find_or_create_by(   title: Faker::Beer.name,
+                                description: Faker::TvShows::Friends.quote,
+                                price: rand(1..100))
 end
 puts "Done. Created #{Reward.count} Rewards"
