@@ -57,18 +57,6 @@ RSpec.describe 'Reward management', type: :system do
     expect(reward.price) == 1
   end
 
-  it 'enables Admin to see list of rewards bought by the employee' do
-    create(:kudo, receiver_of_kudo: employee)
-    sign_in(employee)
-    visit(rewards_path)
-    find('tr', text: reward.title).click_on('Buy')
-    sign_in(admin_user)
-    visit(admin_employees_path)
-    click_on('Show', match: :first)
-    expect(page).to have_text(reward.title)
-    expect(page).to have_text(reward.description)
-    expect(page).to have_text(reward.price)
-  end
   # rubocop:enable Lint/Void
   # rubocop:enable RSpec/ExampleLength
   # rubocop:enable RSpec/MultipleExpectations
