@@ -24,6 +24,10 @@
             <li class="nav-item">
               <%= link_to 'All Rewards', admin_rewards_path, class: 'dropdown-item' %>
             </li>
+
+            <li class="nav-item">
+              <%= link_to "All Orders (#{Order.status_not_delivered.count})", admin_orders_path, class: 'dropdown-item' %>
+            </li>
           </ul>
 
           <li class="nav-item">
