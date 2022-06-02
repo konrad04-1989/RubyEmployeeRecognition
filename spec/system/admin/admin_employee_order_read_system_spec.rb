@@ -27,14 +27,16 @@ RSpec.describe 'Admin Reward management', type: :system do
   it 'enables Admin to deliver rewards to the employees' do
     sign_in(admin_user)
     visit(admin_orders_path)
-    expect(page).to have_text('not_delivered')
-    expect(page).to have_selector(:link_or_button, 'Deliver')
+    expect(order.status).to eq('not_delivered')
+    expect(order.status).not_to eq('delivered')
     click_on('Deliver')
     expect(page).to have_text('Order delivered')
     visit current_path
+    order.reload
+    expect(order.status).to eq('delivered')
+    expect(order.status).not_to eq('not_delivered')
     expect(page).not_to have_selector(:link_or_button, 'Deliver')
     expect(page).not_to have_text('Order delivered')
-    expect(page).to have_text('delivered')
   end
 
   # rubocop:enable RSpec/ExampleLength
