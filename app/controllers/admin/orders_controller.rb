@@ -8,8 +8,7 @@ module Admin
 
     def update
       @order = Order.find(params[:id])
-      @order.status = 1
-      @order.save
+      @order.status_delivered!
       redirect_to admin_orders_path, notice: 'Order delivered successfully.'
     end
   end
