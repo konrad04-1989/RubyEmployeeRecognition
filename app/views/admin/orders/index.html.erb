@@ -1,0 +1,36 @@
+<div class="bg-light shadow-lg p-4 mb-5 rounded">
+
+<h2>Orders List</h2>
+
+<table class="table table-sm table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th style="width: 10%">Purchase time</th>
+      <th style="width: 1%">Price</th>
+      <th>Status</th>
+      <th>Owner</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.snapshot.title %></td>
+        <td><%= order.snapshot.description %></td>
+        <td><%= order.created_at.localtime.to_s(:db) %></td>
+        <td><%= order.snapshot.price %></td>
+        <td><%= order.status %></td>
+        <td><%= order.employee.email %></td>
+        <% if order.status_delivered? == true %>
+          <td><%= button_to 'Deliver', admin_order_path(order), disabled: true, class:"btn btn-secondary btn-sm" %></td>
+        <% else %>
+          <td><%= button_to 'Deliver', admin_order_path(order), method: :patch, data: { confirm: 'Remember, it cannot be undone. Are you sure? ' }, class:"btn btn-success btn-sm" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
