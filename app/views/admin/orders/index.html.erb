@@ -25,7 +25,7 @@
         <td><%= order.status %></td>
         <td><%= order.employee.email %></td>
         <% if order.status_delivered? == true %>
-          <td><%= button_to 'Deliver', admin_order_path(order), disabled: true, class:"btn btn-success btn-sm" %></td>
+          <td><%= button_to 'Deliver', admin_order_path(order), disabled: true, class:"btn btn-secondary btn-sm" %></td>
         <% else %>
           <td><%= button_to 'Deliver', admin_order_path(order), method: :patch, data: { confirm: 'Remember, it cannot be undone. Are you sure? ' }, class:"btn btn-success btn-sm" %></td>
         <% end %>
