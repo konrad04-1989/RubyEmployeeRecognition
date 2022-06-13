@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = if params.key?(:status)
+    @orders = if Order.statuses.key? params[:status]
                 Order.where(employee: current_employee, status: params[:status]).order('created_at')
               else
                 Order.all.where(employee: current_employee)
