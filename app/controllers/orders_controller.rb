@@ -5,7 +5,11 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all.where(employee: current_employee)
+    @orders = if Order.statuses.key? params[:status]
+                Order.where(employee: current_employee, status: params[:status]).order('created_at')
+              else
+                Order.all.where(employee: current_employee)
+              end
   end
 
   # POST /orders
