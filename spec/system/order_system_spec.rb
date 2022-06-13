@@ -8,8 +8,8 @@ RSpec.describe 'Order management', type: :system do
   end
 
   let(:employee) { create(:employee) }
-  let!(:order1) { create(:order, employee: employee, status: 'delivered') }
-  let!(:order2) { create(:order, employee: employee, status: 'not_delivered') }
+  let!(:order_delivered) { create(:order, employee: employee, status: 'delivered') }
+  let!(:order_not_delivered) { create(:order, employee: employee, status: 'not_delivered') }
 
   # rubocop:disable RSpec/ExampleLength
   # rubocop:disable RSpec/MultipleExpectations
@@ -22,14 +22,14 @@ RSpec.describe 'Order management', type: :system do
     expect(page).to have_selector(:link_or_button, 'Delivered')
     expect(page).to have_selector(:link_or_button, 'Not delivered')
     click_on('Delivered')
-    expect(page).to have_text(order1.snapshot.title)
-    expect(page).not_to have_text(order2.snapshot.title)
+    expect(page).to have_text(order_delivered.snapshot.title)
+    expect(page).not_to have_text(order_not_delivered.snapshot.title)
     click_on('Not delivered')
-    expect(page).not_to have_text(order1.snapshot.title)
-    expect(page).to have_text(order2.snapshot.title)
+    expect(page).not_to have_text(order_delivered.snapshot.title)
+    expect(page).to have_text(order_not_delivered.snapshot.title)
     click_on('All')
-    expect(page).to have_text(order1.snapshot.title)
-    expect(page).to have_text(order2.snapshot.title)
+    expect(page).to have_text(order_delivered.snapshot.title)
+    expect(page).to have_text(order_not_delivered.snapshot.title)
   end
   # rubocop:enable RSpec/ExampleLength
   # rubocop:enable RSpec/MultipleExpectations
